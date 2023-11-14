@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import HomePage from './HomePage';
 import TextServicePage from "./TextServicePage";
+import MusicStatsPage from "./MusicStatsPage";
+import CallbackPage from "./CallBackPage";
 
 function App() {
   return (
@@ -14,8 +16,11 @@ function App() {
               <Link to="/" className="text-lg font-semibold mr-6">
                 Home
               </Link>
-              <Link to="/TextServicePage" className="text-lg">
+              <Link to="/TextServicePage" className="text-lg mr-6">
                 Text Formatting
+              </Link>
+              <Link to="/music-stats" className="text-lg">
+                Music Stats
               </Link>
             </div>
           </nav>
@@ -31,6 +36,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/TextServicePage" element={<TextServicePage />} />
+                <Route path="/music-stats" element={<MusicStatsPage />} />
+                <Route path="/callback" element={<CallbackPage />} />
               </Routes>
             </div>
 
