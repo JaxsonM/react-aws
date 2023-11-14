@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const CLIENT_ID = '00ed30d4fa214614be034225cd52f0fb';
-const REDIRECT_URI = encodeURIComponent('http://localhost:3000/callback');
+const REDIRECT_URI = encodeURIComponent('https://main.d2s8qhdd2t59ja.amplifyapp.com/callback');
 const AUTH_SCOPES = ['user-top-read'];
 const SPOTIFY_AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${AUTH_SCOPES.join('%20')}&response_type=token&show_dialog=true`;
 
