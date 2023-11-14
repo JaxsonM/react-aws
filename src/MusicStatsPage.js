@@ -11,13 +11,10 @@ const MusicStatsPage = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('spotifyAuthToken');  // Retrieve the token
-    console.log("Entering musicstatspage")
-    console.log("Token: ", token)
 
     if (token) {
         fetchTopArtists(token);
     } else {
-        console.log("Leave stats page")
         window.location.href = SPOTIFY_AUTH_URL;  // Redirect to Spotify login
     }
 }, []);
