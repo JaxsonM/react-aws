@@ -4,7 +4,7 @@ import { getCurrentUser, updateUserAttributes, fetchUserAttributes} from 'aws-am
 
 const CLIENT_ID = '00ed30d4fa214614be034225cd52f0fb';
 //const REDIRECT_URI = encodeURIComponent('http://localhost:3000/callback');
-const REDIRECT_URI = encodeURIComponent('https://main.d1i9gm5ulgjbaq.amplifyapp.com/callback');
+const REDIRECT_URI = encodeURIComponent('https://main.d14s29q0cstol4.amplifyapp.com/callback');
 
 const AUTH_SCOPES = ['user-top-read'];
 const SCOPE = 'user-read-private user-read-email';
