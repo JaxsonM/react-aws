@@ -3,7 +3,9 @@ import axios from 'axios';
 import { getCurrentUser, updateUserAttributes, fetchUserAttributes} from 'aws-amplify/auth';
 
 const CLIENT_ID = '00ed30d4fa214614be034225cd52f0fb';
-const REDIRECT_URI = encodeURIComponent('http://localhost:3000/callback');
+//const REDIRECT_URI = encodeURIComponent('http://localhost:3000/callback');
+const REDIRECT_URI = encodeURIComponent('https://main.d1i9gm5ulgjbaq.amplifyapp.com/callback');
+
 const AUTH_SCOPES = ['user-top-read'];
 const SCOPE = 'user-read-private user-read-email';
 const SPOTIFY_AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${AUTH_SCOPES.join('%20')}&response_type=token&show_dialog=true`;
