@@ -5,6 +5,9 @@ import HomePage from './HomePage';
 import TextServicePage from "./TextServicePage";
 import MusicStatsPage from "./MusicStatsPage";
 import CallbackPage from "./CallBackPage";
+import MovieRaterPage from "./MovieRaterPage";
+import AuthenticationPage from "./AuthenticationPage"
+
 
 function App() {
   return (
@@ -19,8 +22,14 @@ function App() {
               <Link to="/TextServicePage" className="text-lg mr-6">
                 Text Formatting
               </Link>
-              <Link to="/music-stats" className="text-lg">
+              <Link to="/music-stats" className="text-lg mr-6">
                 Music Stats
+              </Link>
+              <Link to="/movie-rater" className="text-lg mr-6">
+                Movie Rater
+              </Link>
+              <Link to="/login" className="text-lg mr-6">
+                Login
               </Link>
             </div>
           </nav>
@@ -32,12 +41,14 @@ function App() {
             <div className="bg-gray-200 w-2/12"></div>
 
             {/* Content div */}
-            <div className="content bg-white w-8/12 shadow-xl items-center justify-center p-4">
+            <div className="content bg-white w-8/12 shadow-xl items-center justify-center p-4 h-full overflow-auto">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/TextServicePage" element={<TextServicePage />} />
                 <Route path="/music-stats" element={<MusicStatsPage />} />
                 <Route path="/callback" element={<CallbackPage />} />
+                <Route path="/movie-rater" element={<MovieRaterPage />} />
+                <Route path="/login" element={<AuthenticationPage />} />
               </Routes>
             </div>
 
