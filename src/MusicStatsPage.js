@@ -68,6 +68,7 @@ const MusicStatsPage = () => {
         if (error.response.status === 401) {
           console.log("Expired Token")
           refreshSpotifyAccessToken();
+          checkForSpotifyAccessToken()
       } else {
         console.log("Error other than expired token")
       }
