@@ -60,7 +60,7 @@ const MusicStatsPage = () => {
           headers: { 'Authorization': `Bearer ${token}` }
         });
 
-        const response2 = await axios.get(`https://api.spotify.com/v1/me/top/artists?limit=50&offset=50&time_range=${range}`, {
+        const response2 = await axios.get(`https://api.spotify.com/v1/me/top/artists?limit=50&offset=49&time_range=${range}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
 
@@ -92,7 +92,7 @@ const MusicStatsPage = () => {
 
   return (
     <div className="mx-auto my-10 p-5 border-2 rounded h-2/3 w-96 flex flex-col" id="container">
-      <h1 className="text-3xl font-bold pb-1 mb-2">Top 50 Artists</h1>
+      <h1 className="text-3xl font-bold pb-1 mb-2">Top 100 Artists</h1>
       <div className="flex border-2 mb-2">
         <div 
           className={`flex-grow border-r cursor-pointer p-2 ${isSelected('short_term')}`}
