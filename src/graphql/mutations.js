@@ -13,6 +13,7 @@ export const createMovie = /* GraphQL */ `
       addedBy
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -29,6 +30,7 @@ export const updateMovie = /* GraphQL */ `
       addedBy
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -43,6 +45,55 @@ export const deleteMovie = /* GraphQL */ `
       title
       description
       addedBy
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+  }
+`;
+export const createFriendship = /* GraphQL */ `
+  mutation CreateFriendship(
+    $input: CreateFriendshipInput!
+    $condition: ModelFriendshipConditionInput
+  ) {
+    createFriendship(input: $input, condition: $condition) {
+      id
+      userId
+      friendId
+      status
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateFriendship = /* GraphQL */ `
+  mutation UpdateFriendship(
+    $input: UpdateFriendshipInput!
+    $condition: ModelFriendshipConditionInput
+  ) {
+    updateFriendship(input: $input, condition: $condition) {
+      id
+      userId
+      friendId
+      status
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteFriendship = /* GraphQL */ `
+  mutation DeleteFriendship(
+    $input: DeleteFriendshipInput!
+    $condition: ModelFriendshipConditionInput
+  ) {
+    deleteFriendship(input: $input, condition: $condition) {
+      id
+      userId
+      friendId
+      status
       createdAt
       updatedAt
       __typename

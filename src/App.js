@@ -8,6 +8,8 @@ import MusicStatsPage from "./MusicStatsPage";
 import CallbackPage from "./CallBackPage";
 import MovieRaterPage from "./MovieRaterPage";
 import AuthenticationPage from "./AuthenticationPage"
+import MovieSharingPage from "./MovieSharingPage"
+import FriendsPage from "./FriendsPage";
 
 function App() {
   return (
@@ -41,6 +43,12 @@ function Header({ user, signOut }) {
           </Link>
           <Link to="/movie-rater" className="text-lg mr-6">
             Movie Rater
+          </Link>
+          <Link to="/movie-share" className="text-lg mr-6">
+            Movie Share
+          </Link>
+          <Link to="/friends" className="text-lg mr-6">
+            Friends
           </Link>
         </div>
 
@@ -80,6 +88,8 @@ function MainContent() {
                 <Route path="/callback" element={<CallbackPage />} />
                 <Route path="/movie-rater" element={<MovieRaterPage />} />
                 <Route path="/login" element={<AuthenticationPage />} />
+                <Route path="/movie-share" element={<MovieSharingPage />} />
+                <Route path="/friends" element={<FriendsPage />} />
               </Routes>
             </div>
 
