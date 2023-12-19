@@ -2,8 +2,8 @@ import React from 'react';
 
 const FriendsCard = ({ currentUser, friendsList }) => {
   return (
-    <div>
-      <h2>My Friends</h2>
+    <div className="border-2 rounded h-80 w-48">
+      <h2 className="border-b-2">My Friends</h2>
       {friendsList.length > 0 ? (
         friendsList.map(friend => (
           <div key={friend.id}>
