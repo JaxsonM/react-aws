@@ -9,7 +9,7 @@ import CallbackPage from "./CallBackPage";
 import MovieRaterPage from "./MovieRaterPage";
 import AuthenticationPage from "./AuthenticationPage"
 import MovieSharingPage from "./MovieSharingPage"
-import FriendsPage from "./FriendsPage";
+import FriendsPage from "./pages/FriendsPage";
 
 function App() {
   return (
