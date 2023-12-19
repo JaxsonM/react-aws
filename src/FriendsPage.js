@@ -68,11 +68,13 @@ const FriendsPage = () => {
 
     const handleSendFriendRequest = async () => {
         //const currentUser = await getCurrentUser();
+        console.log(friendUsername)
         const lowercasedFriendUsername = friendUsername.toLowerCase();
+        console.log(lowercasedFriendUsername)
         console.log("Friend name:", lowercasedFriendUsername);
-        console.log("My name:", currentUser);
+        console.log("My name:", currentUser.username);
         const friendshipInput = {
-          userId: currentUser.toLowerCase(),  // Ensure current user's username is also lowercased
+          userId: currentUser.username,  // Ensure current user's username is also lowercased
           friendId: lowercasedFriendUsername,         // Use the lowercased friend's username
           status: 'pending'                          // Initial status of the friendship
         };
