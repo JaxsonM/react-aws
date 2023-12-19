@@ -4,6 +4,8 @@ import { createFriendship, updateFriendship, deleteFriendship } from './graphql/
 import { getCurrentUser } from 'aws-amplify/auth';
 import { listFriendships } from './graphql/queries';
 import FriendsCard from './FriendsCard';
+import PendingRequestsCard from './PendingRequestsCard';
+
 
 const FriendsPage = () => {
     const [friendUsername, setFriendUsername] = useState('');
@@ -17,14 +19,15 @@ const FriendsPage = () => {
                 const user = await getCurrentUser();
                 setCurrentUser(user);
                 console.log("current user:", currentUser)
-                console.log(user.username)
+                console.log("user.username", user.username)
                 const fetchPendingRequests = async () => {
                     try {
                       const result = await client.graphql({
                         query: listFriendships,
-                        variables: { filter: { userId: { eq: user.username }, status: { eq: 'pending' } } }
+                        variables: { filter: { friendId: { eq: user.username }, status: { eq: 'pending' } } }
                       });
                       setPendingRequests(result.data.listFriendships.items);
+                      console.log("pending req res:", result.data.listFriendships)
                     } catch (error) {
                       console.error('Error fetching pending friend requests:', error);
                     }
@@ -33,7 +36,6 @@ const FriendsPage = () => {
 
                   const fetchFriendsList = async () => {
                     try {
-                        console.log(user.username)
                       const result = await client.graphql({
                         query: listFriendships,
                         variables: { 
@@ -46,8 +48,6 @@ const FriendsPage = () => {
                             }
                           }                          
                       });
-        
-                      console.log("result", result.data);
                       setFriendsList(result.data.listFriendships.items);
                     } catch (error) {
                       console.error('Error fetching friends list:', error);
@@ -138,19 +138,13 @@ const FriendsPage = () => {
       <button onClick={handleSendFriendRequest}>Send Friend Request</button>
 
       <div>
-      <h2>Pending Friend Requests</h2>
-      {pendingRequests.length > 0 ? (
-        
-        pendingRequests.map(request => (
-            
-          <div key={request.id}>
-            {/* Friend request details */}
-          </div>
-        ))
-      ) : (
-        <p>No pending friend requests.</p>
-      )}
+      <PendingRequestsCard
+    pendingRequests={pendingRequests}
+    onAccept={handleAcceptRequest}
+    onDeny={handleDenyRequest}
+  />
     </div>
+
 
       <div>
       <FriendsCard currentUser={currentUser} friendsList={friendsList} />
