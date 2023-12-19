@@ -34,14 +34,14 @@ const FriendsPage = () => {
     const fetchPendingRequests = async () => {
       const currentUser = await getCurrentUser();
       try {
-        // const result = await client.graphql({
-        //   query: listFriendships,
-        //   variables: { filter: { userId: { eq: currentUser.username }, status: { eq: 'pending' } } }
-        // });
         const result = await client.graphql({
-            query: listFriendships,
-            variables: { /* No filter here */ }
-          });
+          query: listFriendships,
+          variables: { filter: { friendId: { eq: currentUser.username }, status: { eq: 'pending' } } }
+        });
+        // const result = await client.graphql({
+        //     query: listFriendships,
+        //     variables: { /* No filter here */ }
+        //   });
           
         console.log("current user:",currentUser.username)
         console.log("result", result.data);
