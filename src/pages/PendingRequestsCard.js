@@ -1,7 +1,7 @@
 import './styles.css'; // Make sure to import the CSS file
 import React, { useState, useEffect } from 'react';
 import { generateClient } from 'aws-amplify/api';
-import { createFriendship, updateFriendship, deleteFriendship } from '../graphql/mutations';
+import { updateFriendship, deleteFriendship } from '../graphql/mutations';
 
 const PendingRequestsCard = ({ pendingRequests, currentUser, refreshRequests}) => {
   const [outgoingRequests, setOutgoingRequests] = useState([]);

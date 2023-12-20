@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { generateClient } from 'aws-amplify/api';
-import { createFriendship, updateFriendship, deleteFriendship } from '../graphql/mutations';
 import { getCurrentUser } from 'aws-amplify/auth';
 import { listFriendships } from '../graphql/queries';
 import FriendsCard from './FriendsCard';
@@ -9,11 +8,9 @@ import AddFriendCard from './AddFriendCard';
 
 
 const FriendsPage = () => {
-    const [friendUsername, setFriendUsername] = useState('');
     const [friendsList, setFriendsList] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
     const [pendingRequests, setPendingRequests] = useState([]);
-    const [friendsData, setFriendsData] = useState([]);
 
     const client = generateClient();
 
@@ -34,13 +31,10 @@ const FriendsPage = () => {
                     }
                 }                          
             });
-            setFriendsData(result.data.listFriendships.items);
-
             const friends = result.data.listFriendships.items.filter(friend => friend.status === 'accepted');
             const pending = result.data.listFriendships.items.filter(friend => friend.status === 'pending');
             setFriendsList(friends);
-            setPendingRequests(pending);
-            
+            setPendingRequests(pending); 
         } catch (error) {
             console.error('Error initializing data:', error);
         }
