@@ -8,8 +8,8 @@ import MusicStatsPage from "./MusicStatsPage";
 import CallbackPage from "./CallBackPage";
 import MovieRaterPage from "./MovieRaterPage";
 import AuthenticationPage from "./AuthenticationPage"
-import MovieSharingPage from "./MovieSharingPage"
-import FriendsPage from "./pages/FriendsPage";
+import MovieSharingPage from "./pages/movieSharingPage/MovieSharingPage"
+import FriendsPage from "./pages/friendsPage/FriendsPage";
 
 function App() {
   return (

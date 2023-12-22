@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { generateClient } from 'aws-amplify/api';
-import { createFriendship } from '../graphql/mutations';
+import { createFriendship } from '../../graphql/mutations';
 import './styles.css'; // Import the shared styles
 
 const AddFriendCard = ({ currentUser, refreshRequests }) => {

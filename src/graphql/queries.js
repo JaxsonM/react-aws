@@ -7,10 +7,10 @@ export const getMovie = /* GraphQL */ `
       id
       title
       description
+      groupId
       addedBy
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -26,10 +26,44 @@ export const listMovies = /* GraphQL */ `
         id
         title
         description
+        groupId
         addedBy
         createdAt
         updatedAt
-        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const getMovieGroup = /* GraphQL */ `
+  query GetMovieGroup($id: ID!) {
+    getMovieGroup(id: $id) {
+      id
+      members
+      movies {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listMovieGroups = /* GraphQL */ `
+  query ListMovieGroups(
+    $filter: ModelMovieGroupFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMovieGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        members
+        createdAt
+        updatedAt
         __typename
       }
       nextToken
@@ -62,6 +96,38 @@ export const listFriendships = /* GraphQL */ `
         userId
         friendId
         status
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const moviesByGroupIdAndTitle = /* GraphQL */ `
+  query MoviesByGroupIdAndTitle(
+    $groupId: ID!
+    $title: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelMovieFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    moviesByGroupIdAndTitle(
+      groupId: $groupId
+      title: $title
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        title
+        description
+        groupId
+        addedBy
         createdAt
         updatedAt
         __typename

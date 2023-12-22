@@ -10,10 +10,10 @@ export const createMovie = /* GraphQL */ `
       id
       title
       description
+      groupId
       addedBy
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -27,10 +27,10 @@ export const updateMovie = /* GraphQL */ `
       id
       title
       description
+      groupId
       addedBy
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -44,10 +44,64 @@ export const deleteMovie = /* GraphQL */ `
       id
       title
       description
+      groupId
       addedBy
       createdAt
       updatedAt
-      owner
+      __typename
+    }
+  }
+`;
+export const createMovieGroup = /* GraphQL */ `
+  mutation CreateMovieGroup(
+    $input: CreateMovieGroupInput!
+    $condition: ModelMovieGroupConditionInput
+  ) {
+    createMovieGroup(input: $input, condition: $condition) {
+      id
+      members
+      movies {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateMovieGroup = /* GraphQL */ `
+  mutation UpdateMovieGroup(
+    $input: UpdateMovieGroupInput!
+    $condition: ModelMovieGroupConditionInput
+  ) {
+    updateMovieGroup(input: $input, condition: $condition) {
+      id
+      members
+      movies {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteMovieGroup = /* GraphQL */ `
+  mutation DeleteMovieGroup(
+    $input: DeleteMovieGroupInput!
+    $condition: ModelMovieGroupConditionInput
+  ) {
+    deleteMovieGroup(input: $input, condition: $condition) {
+      id
+      members
+      movies {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
       __typename
     }
   }
