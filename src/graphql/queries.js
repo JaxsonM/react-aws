@@ -6,7 +6,10 @@ export const getMovie = /* GraphQL */ `
     getMovie(id: $id) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt
@@ -25,7 +28,10 @@ export const listMovies = /* GraphQL */ `
       items {
         id
         title
-        description
+        year
+        type
+        poster
+        imdbID
         groupId
         addedBy
         createdAt
@@ -125,7 +131,10 @@ export const moviesByGroupIdAndTitle = /* GraphQL */ `
       items {
         id
         title
-        description
+        year
+        type
+        poster
+        imdbID
         groupId
         addedBy
         createdAt

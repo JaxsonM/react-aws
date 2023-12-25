@@ -9,7 +9,10 @@ export const createMovie = /* GraphQL */ `
     createMovie(input: $input, condition: $condition) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt
@@ -26,7 +29,10 @@ export const updateMovie = /* GraphQL */ `
     updateMovie(input: $input, condition: $condition) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt
@@ -43,7 +49,10 @@ export const deleteMovie = /* GraphQL */ `
     deleteMovie(input: $input, condition: $condition) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt

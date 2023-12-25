@@ -5,6 +5,7 @@ import useCurrentUser from '../../hooks/useCurrentUser';
 import { createMovieGroup } from '../../graphql/mutations';
 import { generateClient } from 'aws-amplify/api';
 import { listMovieGroups } from '../../graphql/queries';
+import MovieGroupsCard from './MovieGroupsCard';
 
 const MovieSharingPage = () => {
   const [selectedFriends, setSelectedFriends] = useState([]);
@@ -93,21 +94,9 @@ const MovieSharingPage = () => {
         </div>
       )}
       <div>
-      <h2>Your Movie Groups</h2>
-      {movieGroups.length > 0 ? (
-        <ul>
-          {movieGroups.map(group => (
-            <li key={group.id}>
-              <p>Group ID: {group.id}</p>
-              <p>Members: {group.members.join(', ')}</p>
-              {/* Display other group details here */}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>You are not part of any movie groups yet.</p>
-      )}
-    </div>
+        <MovieGroupsCard movieGroups={movieGroups} />
+      </div>
+
     </div>
   );
 };

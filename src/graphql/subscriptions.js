@@ -6,7 +6,10 @@ export const onCreateMovie = /* GraphQL */ `
     onCreateMovie(filter: $filter) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt
@@ -20,7 +23,10 @@ export const onUpdateMovie = /* GraphQL */ `
     onUpdateMovie(filter: $filter) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt
@@ -34,7 +40,10 @@ export const onDeleteMovie = /* GraphQL */ `
     onDeleteMovie(filter: $filter) {
       id
       title
-      description
+      year
+      type
+      poster
+      imdbID
       groupId
       addedBy
       createdAt

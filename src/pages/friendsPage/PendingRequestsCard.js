@@ -1,4 +1,4 @@
-import './styles.css'; // Make sure to import the CSS file
+import '../styles.css'; // Make sure to import the CSS file
 import React, { useState, useEffect } from 'react';
 import { generateClient } from 'aws-amplify/api';
 import { updateFriendship, deleteFriendship } from '../../graphql/mutations';
